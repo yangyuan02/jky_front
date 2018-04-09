@@ -13,6 +13,8 @@ const upload = r => require.ensure([], () => r(require('@/views/datamanage/uploa
 
 const grade = r => require.ensure([], () => r(require('@/views/datamanage/grade')), 'grade')
 
+const error = r => require.ensure([], () => r(require('@/components/common/error')), 'error')
+
 Vue.use(Router)
 
 export default new Router({
@@ -47,8 +49,12 @@ export default new Router({
                         }
                     ]
                 }
-
             ]
+        },
+        {
+            path: '*',
+            name: 'error',
+            component: error
         }
     ]
 })
